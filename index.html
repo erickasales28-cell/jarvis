@@ -163,6 +163,7 @@
           <span>Depoimento ilustrativo para substituir por prova real</span>
         </article>
       </div>
+      <p class="proof-note reveal">Numeros e depoimento ilustrativos, a substituir por dados reais da jornada.</p>
     </section>
 
     <section class="section comparison-band">
@@ -225,7 +226,8 @@
           <h2>Entre na lista de embarque do Barco dos navegantes.</h2>
           <p>Deixe seu contato para receber os proximos avisos e acompanhar a abertura da jornada.</p>
         </div>
-        <form class="lead-form reveal" novalidate>
+        <!-- data-endpoint: URL que recebe o lead (formulario/webhook do Clickmax). -->
+        <form class="lead-form reveal" novalidate data-endpoint="">
           <label>
             Nome
             <input type="text" name="name" autocomplete="name" placeholder="Seu nome" required>
@@ -247,6 +249,12 @@
             <input type="checkbox" name="privacy" required>
             <span>Li e concordo em receber contato sobre o Barco dos navegantes.</span>
           </label>
+          <input type="hidden" name="utm_source">
+          <input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign">
+          <input type="hidden" name="utm_content">
+          <input type="hidden" name="utm_term">
+          <input type="hidden" name="page_url">
           <button class="button button-primary form-button" type="submit">Entrar na lista</button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
