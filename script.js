@@ -75,21 +75,75 @@ faqButtons.forEach((button) => {
   });
 });
 
-form.addEventListener('submit', (event) => {
+const trackingFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+const fillTrackingFields = () => {
+  const params = new URLSearchParams(window.location.search);
+
+  trackingFields.forEach((field) => {
+    const input = form.elements.namedItem(field);
+
+    if (input && params.has(field)) {
+      input.value = params.get(field);
+    }
+  });
+
+  form.elements.namedItem('page_url').value = window.location.href;
+};
+
+const setStatus = (message, isError = false) => {
+  statusMessage.textContent = message;
+  statusMessage.classList.toggle('is-error', isError);
+};
+
+const sendLead = async (formData) => {
+  const endpoint = form.dataset.endpoint;
+
+  if (!endpoint) {
+    throw new Error('Formulario sem data-endpoint configurado.');
+  }
+
+  const response = await fetch(endpoint, {
+    method: 'POST',
+    body: formData,
+    headers: { Accept: 'application/json' },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Envio do lead falhou com status ${response.status}.`);
+  }
+};
+
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   if (!form.checkValidity()) {
-    statusMessage.textContent = 'Preencha os campos obrigatorios para continuar.';
+    setStatus('Preencha os campos obrigatorios para continuar.', true);
     form.reportValidity();
     return;
   }
 
+  const submitButton = form.querySelector('[type="submit"]');
   const formData = new FormData(form);
   const name = formData.get('name').toString().trim().split(' ')[0];
 
-  statusMessage.textContent = `${name}, voce entrou na lista de embarque. Em breve, enviaremos os proximos avisos do Barco dos navegantes.`;
-  form.reset();
+  submitButton.disabled = true;
+  setStatus('Enviando...');
+
+  try {
+    await sendLead(formData);
+    setStatus(`${name}, voce entrou na lista de embarque. Em breve, enviaremos os proximos avisos do Barco dos navegantes.`);
+    form.reset();
+    fillTrackingFields();
+  } catch (error) {
+    console.error(error);
+    setStatus('Nao foi possivel enviar agora. Tente novamente em instantes.', true);
+  } finally {
+    submitButton.disabled = false;
+  }
 });
+
+fillTrackingFields();
 
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
