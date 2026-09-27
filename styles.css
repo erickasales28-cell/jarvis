@@ -140,6 +140,12 @@ select {
   font-weight: 800;
 }
 
+.proof-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
 .form-status.is-error {
   color: #b3261e;
 }
