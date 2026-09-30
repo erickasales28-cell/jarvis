@@ -23,6 +23,14 @@
         "-y",
         "@executeautomation/playwright-mcp-server"
       ]
+    },
+    "postgresql": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "${POSTGRES_CONNECTION_STRING:-}"
+      ]
     }
   }
 }
