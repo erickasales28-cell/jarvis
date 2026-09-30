@@ -1,109 +1,71 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Orientacoes para o Claude Code ao trabalhar neste repositorio.
 
-## Universal Development Guidelines
+## O projeto
 
-### Code Quality Standards
-- Write clean, readable, and maintainable code
-- Follow consistent naming conventions across the project
-- Use meaningful variable and function names
-- Keep functions focused and single-purpose
-- Add comments for complex logic and business rules
+Landing page do **Barco dos navegantes**: uma lista de espera ("lista de embarque") para uma jornada guiada de direcao e clareza. Todo o conteudo e a interface sao em portugues (`lang="pt-BR"`).
 
-### Git Workflow
-- Use descriptive commit messages following conventional commits format
-- Create feature branches for new development
-- Keep commits atomic and focused on single changes
-- Use pull requests for code review before merging
-- Maintain a clean commit history
+## Stack
 
-### Documentation
-- Keep README.md files up to date
-- Document public APIs and interfaces
-- Include usage examples for complex features
-- Maintain inline code documentation
-- Update documentation when making changes
+HTML + CSS + JS puro. Sem framework, sem build, sem `package.json`, sem dependencias externas.
 
-### Testing Approach
-- Write tests for new features and bug fixes
-- Maintain good test coverage
-- Use descriptive test names that explain the expected behavior
-- Organize tests logically by feature or module
-- Run tests before committing changes
+- `index.html`: pagina unica, com todas as secoes.
+- `styles.css`: todo o estilo. Tokens em `:root`.
+- `script.js`: so comportamento (header no scroll, reveal, contadores, FAQ, envio do formulario).
+- `DESIGN-SYSTEM.md`: regras visuais, de texto e de acessibilidade. **E a fonte de verdade para qualquer mudanca visual ou de texto.**
 
-### Security Best Practices
-- Never commit sensitive information (API keys, passwords, tokens)
-- Use environment variables for configuration
-- Validate input data and sanitize outputs
-- Follow principle of least privilege
-- Keep dependencies updated
+Para ver a pagina: abrir `index.html` no navegador, ou rodar `python3 -m http.server` na raiz e acessar `http://localhost:8000`.
 
-## Project Structure Guidelines
+Nao ha testes automatizados. Antes de concluir uma mudanca, conferir na pagina (larguras 375px, 768px, 1024px e 1440px) e rodar o checklist da secao 13 do `DESIGN-SYSTEM.md`.
 
-### File Organization
-- Group related files in logical directories
-- Use consistent file and folder naming conventions
-- Separate source code from configuration files
-- Keep build artifacts out of version control
-- Organize assets and resources appropriately
+## Regras
 
-### Configuration Management
-- Use configuration files for environment-specific settings
-- Centralize configuration in dedicated files
-- Use environment variables for sensitive or environment-specific data
-- Document configuration options and their purposes
-- Provide example configuration files
+- Leia o `DESIGN-SYSTEM.md` antes de mexer em layout, cores, tipografia, componentes ou textos.
+- Nao adicione framework, bundler, biblioteca JS ou CDN sem pedir antes. O projeto e intencionalmente independente de framework.
+- JS so para comportamento. Nada de gerar HTML de conteudo via JS.
+- Mantenha ARIA sincronizado com o estado visual (ex.: `aria-expanded` no FAQ) e respeite `prefers-reduced-motion`.
+- Raio maximo 8px, alvos de toque com no minimo 44px, foco sempre visivel.
+- Tom de voz: calmo, claro, orientador. Sem promessa garantida, urgencia falsa ou "metodo infalivel" (ver secao 11 do design system).
+- Os textos do site e da documentacao estao escritos sem acentos. Mantenha esse padrao; pergunte antes de mudar.
 
-## Development Workflow
+## Onde o codigo diverge do DESIGN-SYSTEM.md
 
-### Before Starting Work
-1. Pull latest changes from main branch
-2. Create a new feature branch
-3. Review existing code and architecture
-4. Plan the implementation approach
+Nao "corrija" essas diferencas por conta propria. Se uma tarefa esbarrar nelas, avise e pergunte.
 
-### During Development
-1. Make incremental commits with clear messages
-2. Run tests frequently to catch issues early
-3. Follow established coding standards
-4. Update documentation as needed
+- **Nomes dos tokens de cor**: o `styles.css` usa nomes antigos com os valores do design system.
 
-### Before Submitting
-1. Run full test suite
-2. Check code quality and formatting
-3. Update documentation if necessary
-4. Create clear pull request description
+  | `styles.css` | `DESIGN-SYSTEM.md` |
+  |---|---|
+  | `--ink` | `--color-ink` |
+  | `--muted` | `--color-muted` |
+  | `--paper` | `--color-paper` |
+  | `--surface` | `--color-surface` |
+  | `--line` | `--color-line` |
+  | `--teal` | `--color-primary` |
+  | `--coral` | `--color-primary-soft` |
+  | `--teal-dark` | `--color-accent` |
+  | `--mustard` | `--color-accent-soft` |
+  | `--forest` | `--color-depth` |
+  | `--shadow` | `--shadow-premium` |
+  | `--radius` | `--radius-base` |
 
-## Common Patterns
+  Os nomes (`teal`, `coral`, `mustard`, `forest`) nao descrevem mais as cores. Use os nomes que ja existem no CSS.
+- **Fontes**: o design system recomenda Bodoni Moda + Jost via Google Fonts; o CSS usa fontes do sistema (DejaVu, Charter, Georgia...).
+- **Breakpoints**: o CSS usa `900px` e `620px`; o design system lista 480/768/1024/1440.
+- A escala de espacamento (`--space-*`) e de texto (`--text-*`) do design system nao existe como variaveis no CSS.
 
-### Error Handling
-- Use appropriate error handling mechanisms for the language
-- Provide meaningful error messages
-- Log errors appropriately for debugging
-- Handle edge cases gracefully
-- Don't expose sensitive information in error messages
+## Formulario de lead
 
-### Performance Considerations
-- Profile code for performance bottlenecks
-- Optimize database queries and API calls
-- Use caching where appropriate
-- Consider memory usage and resource management
-- Monitor and measure performance metrics
+- O `<form class="lead-form">` envia via `fetch` para a URL em `data-endpoint` (webhook do Clickmax).
+- **`data-endpoint` esta vazio**: hoje todo envio cai no erro "Nao foi possivel enviar agora". Nao invente uma URL; peca ao responsavel.
+- Campos ocultos `utm_*` e `page_url` sao preenchidos a partir da URL da pagina. Nao remova.
 
-### Code Reusability
-- Extract common functionality into reusable modules
-- Use dependency injection for better testability
-- Create utility functions for repeated operations
-- Design interfaces for extensibility
-- Follow DRY (Don't Repeat Yourself) principle
+## Conteudo provisorio
 
-## Review Checklist
+Os numeros da secao "Resultados" (`data-count` 92, 87, 42) e o depoimento sao **ilustrativos** e estao marcados como tal na pagina. Nao apresente esses dados como reais e nao tire o aviso sem receber os numeros verdadeiros.
 
-Before marking any task as complete:
-- [ ] Code follows established conventions
-- [ ] Tests are written and passing
-- [ ] Documentation is updated
-- [ ] Security considerations are addressed
-- [ ] Performance impact is considered
-- [ ] Code is reviewed for maintainability
+## Ferramentas do Claude neste repo
+
+- `.claude/agents/` e `.claude/skills/` tem varios agentes e skills genericos. Para este projeto, os uteis sao `frontend-design`, `javascript-pro` e `code-reviewer`. Os de backend, banco de dados e Python nao se aplicam a um site estatico.
+- `.mcp.json` tem servidores MCP com valores de exemplo (chaves, tokens, connection strings). Nunca comite valores reais nesse arquivo.
