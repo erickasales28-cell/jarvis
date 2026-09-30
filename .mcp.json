@@ -31,6 +31,12 @@
         "@modelcontextprotocol/server-postgres",
         "${POSTGRES_CONNECTION_STRING:-}"
       ]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
     }
   }
 }
