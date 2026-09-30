@@ -20,6 +20,15 @@
       "args": [
         "@playwright/mcp@latest"
       ]
+    },
+    "mysql": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-mysql"
+      ],
+      "env": {
+        "MYSQL_CONNECTION_STRING": "mysql://user:password@localhost:3306/dbname"
+      }
     }
   }
 }
