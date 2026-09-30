@@ -1,0 +1,91 @@
+{
+  "mcpServers": {
+    "browser-server": {
+      "command": "browser-use-mcp-server",
+      "args": [
+        "run",
+        "server",
+        "--port",
+        "8000",
+        "--stdio",
+        "--proxy-port",
+        "9000"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "your-api-key"
+      }
+    },
+    "playwright-server": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    },
+    "mysql": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-mysql"
+      ],
+      "env": {
+        "MYSQL_CONNECTION_STRING": "mysql://user:password@localhost:3306/dbname"
+      }
+    },
+    "markitdown": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "markitdown-mcp:latest"
+      ]
+    },
+    "fb-ads-mcp-server": {
+      "command": "python",
+      "args": [
+        "/path/to/your/fb-ads-mcp-server/server.py",
+        "--fb-token",
+        "YOUR_META_ACCESS_TOKEN"
+      ]
+    },
+    "notionApi": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@notionhq/notion-mcp-server"
+      ],
+      "env": {
+        "NOTION_TOKEN": "ntn_****"
+      }
+    },
+    "firecrawl-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "YOUR-API-KEY"
+      }
+    },
+    "google-workspace": {
+      "command": "uvx",
+      "args": [
+        "workspace-mcp"
+      ],
+      "env": {
+        "GOOGLE_OAUTH_CLIENT_ID": "<your-client-id>",
+        "GOOGLE_OAUTH_CLIENT_SECRET": "<your-client-secret>"
+      }
+    },
+    "jupyter": {
+      "command": "uvx",
+      "args": [
+        "jupyter-mcp-server@latest"
+      ],
+      "env": {
+        "JUPYTER_URL": "<your-jupyter-url>",
+        "JUPYTER_TOKEN": "<your-jupyter-token>"
+      }
+    }
+  }
+}
