@@ -80,6 +80,14 @@
         "-y",
         "ios-simulator-mcp"
       ]
+    },
+    "deepgraph-react": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-code-graph@latest",
+        "facebook/react"
+      ]
     }
   }
 }
