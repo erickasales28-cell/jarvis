@@ -66,6 +66,16 @@
       "env": {
         "FIRECRAWL_API_KEY": "YOUR-API-KEY"
       }
+    },
+    "google-workspace": {
+      "command": "uvx",
+      "args": [
+        "workspace-mcp"
+      ],
+      "env": {
+        "GOOGLE_OAUTH_CLIENT_ID": "<your-client-id>",
+        "GOOGLE_OAUTH_CLIENT_SECRET": "<your-client-secret>"
+      }
     }
   }
 }
