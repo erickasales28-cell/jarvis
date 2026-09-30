@@ -76,6 +76,16 @@
         "GOOGLE_OAUTH_CLIENT_ID": "<your-client-id>",
         "GOOGLE_OAUTH_CLIENT_SECRET": "<your-client-secret>"
       }
+    },
+    "jupyter": {
+      "command": "uvx",
+      "args": [
+        "jupyter-mcp-server@latest"
+      ],
+      "env": {
+        "JUPYTER_URL": "<your-jupyter-url>",
+        "JUPYTER_TOKEN": "<your-jupyter-token>"
+      }
     }
   }
 }
