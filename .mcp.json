@@ -38,6 +38,14 @@
         "-i",
         "markitdown-mcp:latest"
       ]
+    },
+    "fb-ads-mcp-server": {
+      "command": "python",
+      "args": [
+        "/path/to/your/fb-ads-mcp-server/server.py",
+        "--fb-token",
+        "YOUR_META_ACCESS_TOKEN"
+      ]
     }
   }
 }
