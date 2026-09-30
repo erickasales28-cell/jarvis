@@ -88,6 +88,10 @@
         "mcp-code-graph@latest",
         "facebook/react"
       ]
+    },
+    "brightdata": {
+      "type": "http",
+      "url": "https://mcp.brightdata.com/mcp?token=${BRIGHTDATA_API_TOKEN:-}&pro=1"
     }
   }
 }
