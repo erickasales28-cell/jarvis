@@ -14,6 +14,12 @@
       "env": {
         "OPENAI_API_KEY": "your-api-key"
       }
+    },
+    "playwright-server": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     }
   }
 }
