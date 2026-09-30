@@ -92,6 +92,12 @@
     "brightdata": {
       "type": "http",
       "url": "https://mcp.brightdata.com/mcp?token=${BRIGHTDATA_API_TOKEN:-}&pro=1"
+    },
+    "google-ads": {
+      "command": "uvx",
+      "args": [
+        "google-ads-mcp"
+      ]
     }
   }
 }
