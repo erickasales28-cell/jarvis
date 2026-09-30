@@ -46,6 +46,16 @@
         "--fb-token",
         "YOUR_META_ACCESS_TOKEN"
       ]
+    },
+    "notionApi": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@notionhq/notion-mcp-server"
+      ],
+      "env": {
+        "NOTION_TOKEN": "ntn_****"
+      }
     }
   }
 }
