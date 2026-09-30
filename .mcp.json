@@ -73,6 +73,13 @@
         "mcp-code-graph@latest",
         "vercel/next.js"
       ]
+    },
+    "ios-simulator": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "ios-simulator-mcp"
+      ]
     }
   }
 }
