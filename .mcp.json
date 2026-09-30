@@ -29,6 +29,15 @@
       "env": {
         "MYSQL_CONNECTION_STRING": "mysql://user:password@localhost:3306/dbname"
       }
+    },
+    "markitdown": {
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "markitdown-mcp:latest"
+      ]
     }
   }
 }
