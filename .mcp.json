@@ -112,6 +112,14 @@
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN:-}"
       }
+    },
+    "android-mcp": {
+      "command": "uvx",
+      "args": [
+        "--python",
+        "3.13",
+        "android-mcp"
+      ]
     }
   }
 }
