@@ -1,0 +1,81 @@
+{
+  "mcpServers": {
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY:-}"
+      }
+    },
+    "postgresql": {
+      "command": "uvx",
+      "args": [
+        "--with",
+        "mcp<2",
+        "postgres-mcp",
+        "--access-mode=restricted"
+      ],
+      "env": {
+        "DATABASE_URI": "${POSTGRES_CONNECTION_STRING:-}"
+      }
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
+    },
+    "playwright-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    },
+    "figma-dev-mode": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "brightdata": {
+      "type": "http",
+      "url": "https://mcp.brightdata.com/mcp?token=${BRIGHTDATA_API_TOKEN:-}&pro=1"
+    },
+    "google-ads": {
+      "command": "uvx",
+      "args": [
+        "google-ads-mcp"
+      ]
+    },
+    "github-official": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN:-}"
+      }
+    }
+  }
+}
