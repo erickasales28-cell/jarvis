@@ -17,20 +17,17 @@
         "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY:-}"
       }
     },
-    "executeautomation-playwright-server": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@executeautomation/playwright-mcp-server"
-      ]
-    },
     "postgresql": {
-      "command": "npx",
+      "command": "uvx",
       "args": [
-        "-y",
-        "@modelcontextprotocol/server-postgres",
-        "${POSTGRES_CONNECTION_STRING:-}"
-      ]
+        "--with",
+        "mcp<2",
+        "postgres-mcp",
+        "--access-mode=restricted"
+      ],
+      "env": {
+        "DATABASE_URI": "${POSTGRES_CONNECTION_STRING:-}"
+      }
     },
     "fetch": {
       "command": "uvx",
@@ -56,29 +53,6 @@
       "type": "http",
       "url": "http://127.0.0.1:3845/mcp"
     },
-    "deepgraph-nextjs": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-code-graph@latest",
-        "vercel/next.js"
-      ]
-    },
-    "ios-simulator": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "ios-simulator-mcp"
-      ]
-    },
-    "deepgraph-react": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-code-graph@latest",
-        "facebook/react"
-      ]
-    },
     "brightdata": {
       "type": "http",
       "url": "https://mcp.brightdata.com/mcp?token=${BRIGHTDATA_API_TOKEN:-}&pro=1"
@@ -102,14 +76,6 @@
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN:-}"
       }
-    },
-    "android-mcp": {
-      "command": "uvx",
-      "args": [
-        "--python",
-        "3.13",
-        "android-mcp"
-      ]
     }
   }
 }
