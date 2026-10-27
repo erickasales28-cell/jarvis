@@ -57,9 +57,10 @@ Nao "corrija" essas diferencas por conta propria. Se uma tarefa esbarrar nelas, 
 
 ## Formulario de lead
 
-- O `<form class="lead-form">` envia via `fetch` para a URL em `data-endpoint` (webhook do Clickmax).
-- **`data-endpoint` esta vazio**: hoje todo envio cai no erro "Nao foi possivel enviar agora". Nao invente uma URL; peca ao responsavel.
-- Campos ocultos `utm_*` e `page_url` sao preenchidos a partir da URL da pagina. Nao remova.
+- O `<form class="lead-form">` envia via `fetch` (multipart) para a URL em `data-endpoint`.
+- O destino e a rota `POST /leads` do repositorio [fastapi-app](https://github.com/erickasales28-cell/fastapi-app): ela salva o contato no banco e repassa ao webhook do Clickmax. Os contatos aparecem no painel admin do [django-app](https://github.com/erickasales28-cell/django-app).
+- **`data-endpoint` esta vazio** ate a API estar publicada: hoje todo envio cai no erro "Nao foi possivel enviar agora". Quando houver o endereco publico, ele fica no formato `https://<dominio-da-api>/leads`. Nao invente o dominio; peca ao responsavel. Para testar localmente, use `http://localhost:8001/leads` sem comitar.
+- Os nomes dos campos (`name`, `email`, `goal`, `privacy`) e os ocultos `utm_*` e `page_url` sao o contrato com a API. Nao renomeie nem remova sem mudar a API junto.
 
 ## Conteudo provisorio
 
@@ -67,5 +68,5 @@ Os numeros da secao "Resultados" (`data-count` 92, 87, 42) e o depoimento sao **
 
 ## Ferramentas do Claude neste repo
 
-- `.claude/agents/` e `.claude/skills/` tem varios agentes e skills genericos. Para este projeto, os uteis sao `frontend-design`, `javascript-pro` e `code-reviewer`. Os de backend, banco de dados e Python nao se aplicam a um site estatico.
+- `.claude/agents/` e `.claude/skills/` tem varios agentes e skills genericos. Para este projeto, os uteis sao `frontend-design`, `ui-ux-pro-max`, `ui-ux-designer`, `frontend-developer`, `javascript-pro` e `code-reviewer`. Os de backend, banco de dados e Python nao se aplicam a este repositorio (o backend fica no fastapi-app e no django-app). O `fullstack-developer` tende a propor Next.js e outras ferramentas; nao adote sem pedir.
 - `.mcp.json` tem servidores MCP com valores de exemplo (chaves, tokens, connection strings). Nunca comite valores reais nesse arquivo.
