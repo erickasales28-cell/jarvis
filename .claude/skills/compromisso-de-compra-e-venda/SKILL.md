@@ -1,0 +1,46 @@
+---
+name: compromisso-de-compra-e-venda
+description: Use quando o advogado pedir compromisso de compra e venda, promessa de compra e venda de imóvel, contrato de compra e venda de imóvel, "minuta pra venda do apartamento", checklist de documentos pra comprar imóvel, due diligence do imóvel, análise de matrícula e certidões, sinal ou arras. Complementa contrato-a-partir-do-briefing e peca-a-partir-da-ficha com o checklist de ônus e certidões do imóvel, as arras do CC 417 a 420, o registro do compromisso (CC 1.417) e, na incorporação, o quadro-resumo e a Lei 13.786/2018.
+---
+
+# Compromisso de compra e venda de imóvel e due diligence
+
+Antes, use a skill `advo-escritorio` e leia nela `metodos/peca-a-partir-da-ficha.md` e `metodos/plano-antes-de-gerar.md`. O plano é de uma tela, com até 5 perguntas, priorizadas (lado do cliente, imóvel pronto ou na planta, forma de pagamento, o que a matrícula mostra, estado civil do vendedor). Sem Eixo nem Jurisprudência quando não houver tese. Se a triagem barrar o caso (vendedor sem poderes, imóvel com indisponibilidade), pare e responda a consulta. Siga a rotina de `contrato-a-partir-do-briefing` (tipo, lado e objeto; pendências, alertas e itens a conferir no fim) e o módulo `area-civel-consumidor-e-imobiliario`. O que o briefing já cobre não se repete: esta skill acrescenta o que é próprio do imóvel. Onde esta skill e o método divergirem, vale esta skill: o método diz "imóvel acima de 30 salários mínimos pede escritura pública" e "redija direto"; o CC 108 exige escritura para o negócio definitivo sobre imóvel de valor superior a trinta vezes o maior salário mínimo vigente no País (a promessa pode ser particular, CC 1.417), e aqui vem antes o plano de uma tela.
+
+## Antes do roteiro
+
+- **Compromisso ou compra e venda definitiva?** Imóvel acima de 30 vezes o maior salário mínimo exige escritura pública para o negócio definitivo (CC 108). A promessa pode ser por instrumento particular e, se irretratável e **registrada na matrícula**, dá ao comprador direito real à aquisição (CC 1.417) e a adjudicação se o vendedor se recusar a escriturar (CC 1.418). A adjudicação não depende do registro (Súmula 239 do STJ) e existe a via extrajudicial no registro de imóveis (Lei 6.015, art. 216-B, da Lei 14.382/2022): advogado com procuração específica, notificação do vendedor pelo oficial com 15 dias para outorgar a escritura, ata notarial com a prova do pagamento do preço e do inadimplemento, certidões dos distribuidores sem litígio sobre a promessa e ITBI pago (§1º); independe de registro prévio da promessa e da regularidade fiscal do vendedor (§2º). O contrato preliminar tem os elementos essenciais do definitivo, menos a forma (CC 462); sem cláusula de arrependimento, qualquer parte exige o definitivo (CC 463).
+- **Perguntas:** lado do cliente; imóvel pronto, em construção ou lote; preço e forma (à vista, parcelado direto com o vendedor, financiamento, FGTS); sinal ou entrada e para quê; quando a posse passa; estado civil e regime do vendedor; se o imóvel está alugado (o adquirente denuncia a locação em 90 dias do registro, salvo cláusula de vigência registrada: Lei 8.245, art. 8º); matrícula e IPTU na mão?
+
+## Checklist de due diligence (devolva como tabela: item · situação · documento a juntar)
+
+1. **Matrícula atualizada, inteiro teor**, e cadeia dominial. Cheque: proprietário = vendedor; hipoteca; **alienação fiduciária** (vendedor ainda deve ao banco: o credor é o proprietário resolúvel, e o fiduciante só transmite seus direitos com **anuência expressa do fiduciário**, assumindo o adquirente as obrigações, Lei 9.514, art. 29, não alterado pela Lei 14.711/2023; sem ela, exija a quitação e a baixa); penhora, indisponibilidade, usufruto, servidão, cláusulas de inalienabilidade; averbação da construção e do habite-se; descrição e área iguais à realidade.
+2. **Eficácia contra terceiros:** o negócio é eficaz perante atos anteriores que não constam da matrícula, salvo quatro averbações: citação de ação real ou reipersecutória (I), constrição judicial ou execução admitida (II, CPC 828), restrição, indisponibilidade ou outro ônus legal (III) e ação que possa levar o proprietário à insolvência (IV, CPC 792, IV) (Lei 13.097/2015, art. 54). A lei dispensa certidões forenses para validade e boa-fé (§2º). **Peça-as mesmo assim**: sem registro da penhora, o credor só vence o terceiro provando má-fé dele (STJ Tema 243; Súmula 375), e a certidão limpa é a prova da sua boa-fé.
+3. **Vendedor:** certidões de distribuidores cíveis, execuções fiscais, justiça federal e trabalhista, protestos, indisponibilidade de bens, falência. Casado: outorga do cônjuge para alienar ou gravar imóvel, salvo regime da separação absoluta (CC 1.647, I); união estável: se a outorga é exigível sem registro da união é `[conferir jurisprudência]`. Inventário em aberto, procuração e poderes, sociedade e ata.
+4. **Fiscal e condomínio:** IPTU quitado; **declaração de quitação do condomínio**; o adquirente responde pelas dívidas do alienante perante o condomínio (CC 1.345). No compromisso não registrado, quem paga depende da posse e de o condomínio saber da venda (STJ Tema 886): **notifique o condomínio** da transação.
+5. **Escritura e registro:** ITBI, certidões fiscais e certidões de propriedade e ônus reais, mencionados no ato (Lei 7.433/1985, art. 1º, §2º). A propriedade passa com o registro (CC 1.245).
+6. **Na planta ou em loteamento:** registro da incorporação, patrimônio de afetação, quadro-resumo com preço, corretagem e consequências do desfazimento em destaque, sanável em 30 dias, e cláusulas de desfazimento com anuência específica (Lei 4.591, art. 35-A; Lei 6.766, art. 26-A); prazo de entrega e tolerância de até 180 dias se clara e destacada (Lei 4.591, art. 43-A). A hipoteca da construtora não vale contra o comprador (Súmula 308). Corretagem: válida se o preço total e o valor da comissão vêm destacados; a taxa SATI é abusiva (STJ Tema 938). Rescisão: skill `distrato-de-imovel-na-planta`.
+
+## Arras e sinal (CC 417 a 420)
+
+Defina no contrato a função, em cláusula própria:
+- **confirmatórias** (417 a 419): devolvidas ou abatidas do preço; se quem as deu descumpre, o outro as retém; se quem as recebeu descumpre, devolve com o equivalente, correção, juros e honorários (418); indenização maior só com prova do prejuízo, e as arras valem como mínimo (419);
+- **penitenciais** (420): só se o contrato der direito de arrependimento; têm função de indenização e **excluem** indenização complementar.
+Não use "sinal" sem dizer qual. Valor, percentual e correção ficam como `[DEFINIR]`: a skill não calcula.
+
+## Cláusulas que o imóvel pede
+
+Objeto pela matrícula; preço e correção; arras; posse e riscos; IPTU e condomínio até a imissão; despesas de escritura e ITBI; prazo para escriturar e cláusula resolutiva expressa. A mora exige interpelação, mesmo sem registro do compromisso (Súmula 76). Adesão em relação de consumo: confira o CDC 51 e 53 (nula a perda total das parcelas) e destaque as cláusulas restritivas (art. 54, §4º).
+
+## Julgado
+
+Com o Advoclaude Jurisprudência ligado, busque antes de redigir: `buscar_precedentes` nos temas "arras e cláusula penal compromisso de compra e venda", "adjudicação compulsória" e "fraude à execução imóvel boa-fé do adquirente" (súmula e precedente qualificado primeiro) e `buscar_em_todos` (ou o tribunal da causa: `buscar_tjsp`, `buscar_jurisprudencia` pro STJ). Cite só o que voltou com link, e passe cada citação em `verificar_citacao` antes de pôr na peça. Sem o conector, ou sem resultado, deixe `[INSERIR JULGADO: <tema>, conferir]`. Nunca escreva número de processo, relator, data ou ementa que não veio de uma dessas fontes. Súmulas 76, 239, 308 e 375 e Temas 243, 886 e 938 do STJ podem entrar pelo número.
+
+## Não fazer
+
+- Não afirmar que o contrato "está de acordo com a lei" nem que o imóvel está "livre e desembaraçado" sem a matrícula lida.
+- Não deixar o comprador pagar parcelas ao vendedor sem registro do compromisso e sem checar alienação fiduciária.
+- Não misturar sinal e arrependimento sem dizer qual regime vale.
+- Não calcular preço, correção, ITBI nem multa. Prazo (denúncia de locação em 90 dias do registro, arrependimento, prazo para escriturar): conta sugerida, nunca data certa. **Régua do ALERTA (a mesma em todas as skills):** (a) prazo processual ou contratual que vence em 5 dias úteis ou menos; (b) decadência ou prescrição que se consuma em 60 dias ou menos, ou cuja janela já abriu; (c) prazo que já venceu: liste no topo como VENCIDO, com o efeito. Vencimento em sábado, domingo ou feriado: mostre a prorrogação legal que couber `[conferir]` e, para planejar, o dia útil anterior. ALERTA e conta na primeira mensagem, antes das perguntas, e o plano ganha a linha "Prazo".
+
+*Referências conferidas em 21/10/2026 (CC 108, 417 a 420 com a redação da Lei 14.905/2024 no art. 418, 462, 463, 1.245, 1.345, 1.417, 1.418 e 1.647 na Câmara dos Deputados e no Planalto via proxy; Lei 9.514, art. 29, e Lei 6.015, art. 216-B, no Planalto via proxy; Leis 13.097, 7.433 e 13.786 no Planalto via proxy em 20/10; Banco Nacional de Precedentes do CNJ, coleta de 19/10/2026). Revisão de lei em 21/10/2026: Lei 9.514, art. 29, CC 1.647, I, e requisitos do art. 216-B. Lei, súmula e enunciado mudam: por isso existe a conferência antes de protocolar.*
