@@ -14,8 +14,8 @@
 Módulos de área: area-familia-e-sucessoes, area-administrativo-e-fazenda
 
 ## Como escrevemos
-Numeração de parágrafos: a definir
-Destaques: a definir
+Numeração de parágrafos: não
+Destaques: negrito
 - Tratamento ao juízo: "Excelentíssimo(a) Senhor(a) Juiz(a)…" [a definir pelas peças]
 - Fecho padrão: a definir (provisório: "Nestes termos, pede deferimento.")
 - Jurisprudência: a definir (provisório: trecho curto da ementa e referência completa, com link oficial)
